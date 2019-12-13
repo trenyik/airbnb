@@ -1,0 +1,15 @@
+<section class="">
+ <h1>Booking Page</h1>
+    <%# <%= @property.name%> %>
+    <img src="<%= url_for(@property.image)%>"/>
+    <%# <%= @property.price_per_night%> %>
+</section>
+<section class="p-4">
+   
+    <%=form_with url: user_property_books_url(current_user, @property) do |f|%>
+        <%= f.date_field :from_date%>
+        <%=f.date_field :to_date%>
+        <%= f.submit "Book", class: "tn btn-primary" %>
+    <%end%>
+    
+</section>

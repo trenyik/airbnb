@@ -1,0 +1,21 @@
+<div class="properties_container px-4">
+  <%@properties.each do |property|%>
+      <div class="item">
+        <div class="image mb-2" style="background-image: url(<%=url_for(property.image)%>);">
+        </div>
+        <div class="caption">
+         
+          <p style="flex: 1 auto;">
+          <p>
+            <% if current_user %>
+              <a href="<%=new_user_property_book_url(current_user, property)%>" class="btn btn-primary" role="button">Book</a>
+            <%else%>
+              <a href="/login" class="btn btn-secondary" role="button">Login to book</a>
+            <%end%>
+          </p>
+        </div>
+      </div>
+  <%end%>
+</div>
+
+<%=render partial: 'layouts/navigation'%>

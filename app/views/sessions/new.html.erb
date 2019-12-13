@@ -1,0 +1,6 @@
+<%=form_with scope: :session, url: login_path, local: true do |f|%>
+    <%=f.text_field :name, required: true, placeholder: "username"%>
+    <%=f.text_field :password, type: :password, required: true, placeholder: "password"%>
+    <%=f.submit%>
+<%end%>
+<%=link_to "create an account", new_user_url%>

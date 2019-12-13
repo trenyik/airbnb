@@ -1,0 +1,21 @@
+<h1><%=@user.name%> <%=["guest", "host"][@user.is_host]%></h1>
+<hr />
+<%@user.properties.each do |property|%>
+    <div><%=property.name%></div>
+<%end%>
+<section>
+<%@user.books.each do |booking|%>
+    <div><%=booking.property.name%></div>
+    <div><%=booking.from_date%></div>
+    <div><%=booking.to_date%></div>
+    <div>£<%=booking.property.price_per_night%></div>
+<%end%>
+<section>
+<%=form_with model: [@user, @user.properties.build], enctype: "multipart/form-data" do |h|%>
+    <%=h.text_field :name, placeholder: "What is the name of property"%>
+    <%=h.text_field :price_per_night, placeholder: "Price per night"%>
+    <%=h.file_field :image%>
+    <%=h.submit "Create Property"%>
+<%end%>
+<hr />
+<%=link_to "logout", logout_url%>

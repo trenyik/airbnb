@@ -1,0 +1,6 @@
+<%=form_with model: @user, local: true do |f|%>
+    <%=f.text_field :name, placeholder: "Username"%>
+    <%=f.password_field :password, placeholder: "password"%>
+    <%=f.check_box :is_host%><label>Host</label>
+    <%=f.submit%>
+<%end%>
